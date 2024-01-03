@@ -16,23 +16,24 @@ jobs:
     env:
       Test_Data_SQL_Path: .\QuanLyQuanCafe\dataFake
 
+    services:
+      mssql:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        env:
+          ACCEPT_EULA: Y
+          SA_PASSWORD: yourStrong(!)Password
+        ports:
+          - 1433:1433
+        options: --health-cmd="sqlcmd -U sa -P yourStrong(!)Password -Q 'SELECT 1'" --health-interval=10s --health-timeout=5s --health-retries=10
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Install Docker
-      run: choco install docker-desktop
-
-    - name: Run SQL Server
-      run: docker run -e "ACCEPT_EULA=Y" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
-
-    - name: Install SQLCMD
-      run: choco install sqlserver-cmdlineutils
-
     - name: Create DB
       run: |
-        sqlcmd -S localhost,1433 -U sa -Q "CREATE DATABASE QuanLyQuanCafe"
-        sqlcmd -S localhost,1433 -U sa -Q "RESTORE DATABASE QuanLyQuanCafe FROM DISK = '${{ env.Test_Data_SQL_Path }}' WITH MOVE 'YourMDFLogicalName' TO '/var/opt/mssql/data/QuanLyQuanCafe.mdf', MOVE 'YourLDFLogicalName' TO '/var/opt/mssql/data/QuanLyQuanCafe_Log.ldf'"
+        sqlcmd -S localhost,1433 -U sa -P yourStrong(!)Password -Q "CREATE DATABASE QuanLyQuanCafe"
+        sqlcmd -S localhost,1433 -U sa -P yourStrong(!)Password -Q "RESTORE DATABASE QuanLyQuanCafe FROM DISK = '${{ env.Test_Data_SQL_Path }}' WITH MOVE 'YourMDFLogicalName' TO '/var/opt/mssql/data/QuanLyQuanCafe.mdf', MOVE 'YourLDFLogicalName' TO '/var/opt/mssql/data/QuanLyQuanCafe_Log.ldf'"
 
     # The rest of your steps...
     # Install the .NET Core workload
