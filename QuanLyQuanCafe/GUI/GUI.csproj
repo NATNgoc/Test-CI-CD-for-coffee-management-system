@@ -1,0 +1,105 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="datasetDT.cs">
+      <DependentUpon>datasetDT.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <None Update="datasetDT.xsc">
+      <DependentUpon>datasetDT.xsd</DependentUpon>
+    </None>
+    <None Update="datasetDT.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>datasetDT.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="datasetDT.xss">
+      <DependentUpon>datasetDT.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet.xsc">
+      <DependentUpon>QuanLyQuanCafeDataSet.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyQuanCafeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet.xss">
+      <DependentUpon>QuanLyQuanCafeDataSet.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet1.xsc">
+      <DependentUpon>QuanLyQuanCafeDataSet1.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyQuanCafeDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet1.xss">
+      <DependentUpon>QuanLyQuanCafeDataSet1.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet2.xsc">
+      <DependentUpon>QuanLyQuanCafeDataSet2.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyQuanCafeDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet2.xss">
+      <DependentUpon>QuanLyQuanCafeDataSet2.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet3.xsc">
+      <DependentUpon>QuanLyQuanCafeDataSet3.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyQuanCafeDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet3.xss">
+      <DependentUpon>QuanLyQuanCafeDataSet3.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet4.xsc">
+      <DependentUpon>QuanLyQuanCafeDataSet4.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyQuanCafeDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet4.xss">
+      <DependentUpon>QuanLyQuanCafeDataSet4.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet5.xsc">
+      <DependentUpon>QuanLyQuanCafeDataSet5.xsd</DependentUpon>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyQuanCafeDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="QuanLyQuanCafeDataSet5.xss">
+      <DependentUpon>QuanLyQuanCafeDataSet5.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Img\foodImg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
+    <PackageReference Include="Microsoft.Reporting.WinForms.v11" Version="1.0.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SqlServer.Types" Version="160.1000.6" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+</Project>
